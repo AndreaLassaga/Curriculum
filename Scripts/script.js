@@ -1,41 +1,32 @@
-//Función que me aplica el estilo a la opciòn seleccionada y quita la previamente seleccionada
-function seleccionar(link) {
-    var opciones = document.querySelectorAll('#links  a');
-    opciones[0].className = "";
-    opciones[1].className = "";
-    opciones[2].className = "";
-    opciones[3].className = "";
-    opciones[4].className = "";
-    link.className = "seleccionado";
+let nombref = document.getElementById('nombre');
+let email = document.getElementById('email');
+let empresa = document.getElementById('empresa');
+let mensaje = document.getElementById('mensaje');
+let error = document.getElementById('error');
+error.style.color = 'red';
+const form = document.getElementById('formulario');
 
-    //Hacemos desaparecer el menu una vez que se ha seleccionado una opcion
-    //en modo responsive
-    var x = document.getElementById("nav");
-    x.className = "";
-}
 
-//función que muestra el menu responsive
-function responsiveMenu() {
-    var x = document.getElementById("nav");
-    if (x.className === "") {
-        x.className = "responsive";
-    } else {
-        x.className = "";
-    }
-}
+form.addEventListener('submit',function(evt){
+    evt.preventDefault();
+    console.log("enviando formulario...");
+    let mensajeserror =[];
 
-//detecto el scrolling para aplicar la animación del la barra de habilidades
-window.onscroll = function() { efectoHabilidades() };
-
-//funcion que aplica la animación de la barra de habilidades
-function efectoHabilidades() {
-    var skills = document.getElementById("skills");
-    var distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
-    if (distancia_skills >= 300) {
-        document.getElementById("html").classList.add("barra-progreso1");
-        document.getElementById("js").classList.add("barra-progreso2");
-        document.getElementById("bd").classList.add("barra-progreso3");
-        document.getElementById("ps").classList.add("barra-progreso4");
+    if (nombref.value === null || nombref.value === '') {
+        mensajeserror.push('Ingresa por favor tu nombre');
     }
 
-}
+    if (email.value === null || email.value === '') {
+        mensajeserror.push('Ingresa por favor tu email');
+    }
+
+    if (empresa.value === null || empresa.value === '') {
+        mensajeserror.push('Ingresa el nombre de la empresa');
+    }
+
+    if (mensaje.value === null || mensaje.value === '') {
+        mensajeserror.push('Ingresa el motivo delmensaje');
+    }
+    error.innerHTML = mensajeserror.join(', ');
+    
+})

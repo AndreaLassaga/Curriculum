@@ -66,7 +66,7 @@
             <p>email: jennie.nichols@example.com</p>
             <p>Localidad: Billings, Michigan - United States</p>
             <p>Celular: +54 9 11 5555-8888</p>
-            <a href="#">Descargar CV</a>
+            <a href="../Download/cv.pdf" download="Curriculum Vitae Jennie Nichols">Descargar CV</a>
         </div>
     </section>
 
@@ -320,20 +320,25 @@
     <section id="contacto">
         <h3 class="titulo-seccion">Contactame</h3>
         <div class="contenedor-form">
-            <form action="">
+            <form action="" id="formulario">
                 <div class="fila mitad">
-                    <input type="text" placeholder="Nombre Completo *" class="input-mitad">
-                    <input type="email" placeholder="Dirección de Email" class="input-mitad">
+                    <input id="nombre" type="text" placeholder="Nombre Completo *" class="input-mitad" >
+                    
+                     
+                    <input id="email" type="email" placeholder="Dirección de Email" class="input-mitad" >
+                    
+                     
                 </div>
                 <div class="fila">
-                    <input type="text" placeholder="Empresa..." class="input-full">
+                    <input id="empresa" type="text" placeholder="Empresa..." class="input-full" >
                 </div>
                 <div class="fila">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Tu Mensaje..." class="input-full"></textarea>
+                    <textarea name="" id="mensaje" cols="30" rows="10" placeholder="Tu Mensaje..." class="input-full"></textarea>
                 </div>
 
-                <input type="submit" value="Enviar Mensaje" class="btn-enviar">
+                <input id="bmensaje" type="submit"  value="Enviar Mensaje" class="btn-enviar">
             </form>
+            <div id='error'> </div>
         </div>
     </section>
 
@@ -346,7 +351,7 @@
 
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../Scripts/script.js"></script>
 </body>
 
 </html>
